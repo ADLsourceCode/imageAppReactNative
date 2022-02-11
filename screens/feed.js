@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
-import { Image, View, TouchableOpacity,ActivityIndicator,RefreshControl } from 'react-native'
+import { Image, View, TouchableOpacity,ActivityIndicator,RefreshControl, } from 'react-native'
 import { FlatList, } from 'react-navigation';
 import { Text, Avatar, withStyles, List } from 'react-native-ui-kitten'
 import ListItem from '../components/listItem';
+import NetworkUtils  from '../Misc/networkUtils';
+
 
 
 
   class Feed extends Component {
-    state = { DATA: null, isRefreshing: false,page:1,perPage:5, loadingMore: false, }
+    state = { DATA: null, isRefreshing: false,page:1,perPage:5, loadingMore: false,isConnected:true }
     
-
     componentDidMount() {
+
       this.fetchPosts()
+
     }
+
 
 
     fetchPosts = async () => {
@@ -32,6 +36,7 @@ import ListItem from '../components/listItem';
         , isRefreshing: false })
       } catch (e) {
         console.error(e)
+        
       }
     }
 
@@ -56,7 +61,8 @@ import ListItem from '../components/listItem';
 
    
     render () {
-      
+
+
       if (this.state.DATA != null) {
       return (
         
@@ -73,7 +79,6 @@ import ListItem from '../components/listItem';
          onEndReached={this._loadMore}
         onEndReachedThreshold={0.5}
         initialNumToRender={10}
-        // ListFooterComponent={this._Footer}
       />
       )
     } else{
@@ -84,6 +89,7 @@ import ListItem from '../components/listItem';
       </View>
     )
     }
+ 
     
 
     }
