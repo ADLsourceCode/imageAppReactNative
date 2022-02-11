@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 
 import Feed from '../screens/feed'
 import Search from '../screens/search'
-import Chat from '../screens/Chat'
+import Chat from '../screens/chat'
 import Profile from '../screens/profile'
 import { Icon } from 'react-native-ui-kitten'
 import { FeedNavigator } from './stackNavigator'

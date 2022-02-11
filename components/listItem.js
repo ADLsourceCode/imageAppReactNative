@@ -1,43 +1,23 @@
 import React, { Component } from 'react'
-import { Image, View, TouchableOpacity } from 'react-native'
-import { Text, Avatar, withStyles, List } from 'react-native-ui-kitten'
+import { Image, View, TouchableOpacity,StyleSheet } from 'react-native'
+import { Text, Avatar, withStyles, List, } from 'react-native-ui-kitten'
 
 import { Icon } from 'react-native-ui-kitten'
 
 const listItem = ({ item }) => (
-    <View style={{
-        backgroundColor: 'white',
-        marginBottom: 25
-      }}>
+    <View style={style.container}>
     <Image
       source={{ uri: item.largeImageURL }}
-      style={{
-        width: '100%',
-        height: 300
-      }}
+      style={style.image}
     />
-    <View style={{
-    padding: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  }}>
-   <View style={{
-    padding: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start'
-  }}>
+    <View style={style.bottomContainer}>
+   <View style={style.innerContainer}>
    <Avatar
           source={{ uri: item.userImageURL }}
           size='small'
-          style={ {
-            marginRight: 16
-          }}
+          style={style.avatar}
         />
-      <Text category='s1' style={{
-    color: 'black'
-  }}>
+      <Text category='s1' style={style.title}>
         {item.user}
       </Text>
 
@@ -45,21 +25,14 @@ const listItem = ({ item }) => (
        
        
     </View>
-<View style={{
-    padding: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start'
-  }}>
+<View style={style.lowerContainer}>
     <Icon
             name='heart-outline'
             width={25}
             height={25}
             fill='#939393'
           />
-          <Text style={{
-            marginRight:10
-          }}>{item.likes}</Text>
+          <Text style={style.stats}>{item.likes}</Text>
           
           <Icon
             name='download-outline'
@@ -70,12 +43,7 @@ const listItem = ({ item }) => (
           <Text>{item.downloads}</Text>
           </View>
     </View>
-        <View  style={{
-    padding: 10,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start'
-  }}>
+        <View  style={style.tagContainer}>
         <Text>Tags: {item.tags.split(",").map((e) => {
          return (   <Text>{e}</Text>)
         })}</Text>
@@ -85,6 +53,49 @@ const listItem = ({ item }) => (
   )
 
 
+  const style = StyleSheet.create({
+    image: {
+      width: '100%',
+      height: 300
+    },
+    container: {
+      backgroundColor: 'white',
+      marginBottom: 25
+    },
+    bottomContainer:{
+      padding: 10,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between'
+    },
+    innerContainer:{
+      padding: 10,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start'
+    },
+    avatar: {
+      marginRight: 16
+    },
+    tltle:{
+      color: 'black'
+    },
+    lowerContainer:{
+      padding: 10,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start'
+    },
+    stats:{
+      marginRight:10
+    },
+    tagContainer:{
+      padding: 10,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start'
+    }
+})
 
 export default listItem
 
