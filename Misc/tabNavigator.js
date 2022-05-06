@@ -2,12 +2,12 @@ import React from 'react'
 import { createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 
-import Feed from '../screens/feed'
-import Search from '../screens/search'
-import Chat from '../screens/chat'
-import Profile from '../screens/profile'
+import Feed from '../screens/feed.js'
+import Search from '../screens/search.js'
+import Chat from '../screens/chat.js'
+import Profile from '../screens/profile.js'
 import { Icon } from 'react-native-ui-kitten'
-import { FeedNavigator } from './stackNavigator'
+import { FeedNavigator } from './stackNavigator.js'
 
 const TabNavigator = createBottomTabNavigator({
     Feed: {

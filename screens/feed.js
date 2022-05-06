@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Image, View, TouchableOpacity,ActivityIndicator,RefreshControl, } from 'react-native'
 import { FlatList, } from 'react-navigation';
 import { Text, Avatar, withStyles, List } from 'react-native-ui-kitten'
-import ListItem from '../components/listItem';
-import NetworkUtils  from '../Misc/networkUtils';
+import ListItem from '../components/listItem.js';
+import NetworkUtils  from '../misc/networkUtils.js';
 
 
 
